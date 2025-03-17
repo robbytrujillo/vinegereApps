@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-function FormVigenere(): ReactElement {
+export default function FormVigenere(): ReactElement {
     return (
         <>
             <form>
@@ -29,13 +29,10 @@ function FormVigenere(): ReactElement {
                         value="original" 
                         className="w-1/2 flex items-center justify-center">
                             Original
-                    </button>
-                    
+                    </button>                    
                 </div>
             </form>
         </>
-
     );
 }
 
-export default FormVigenere;
