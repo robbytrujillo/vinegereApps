@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 function FormVigenere(): ReactElement {
     return (
@@ -7,7 +7,7 @@ function FormVigenere(): ReactElement {
                 <div className="mb-4">
                     <textarea 
                         name="messages"
-                        className='border-1 border-white p-2 w-full h-30'
+                        className="border-1 border-white p-2 w-full h-30"
                         placeholder="Original or encrypted message">
                     </textarea>
                 </div>
@@ -15,24 +15,27 @@ function FormVigenere(): ReactElement {
                     <input 
                         type="text"
                         name="password"
-                        className='border-1 border-white p-2 w-full'
+                        className="border-1 border-white p-2 w-full"
                         placeholder="password">
                     </input>
                 </div>
                 <div className="mb-4 flex gap-4">
                     <button type="submit" 
-                        value="original" 
-                        className='w-1/2 flex items-center justify-center'>
-                            Original
-                    </button>
-                    <button type="submit" 
                         value="encrypt" 
-                        className='w-1/2 flex items-center justify-center'>
+                        className="w-1/2 flex items-center justify-center">
                             Encrypt
                     </button>
+                    <button type="submit" 
+                        value="original" 
+                        className="w-1/2 flex items-center justify-center">
+                            Original
+                    </button>
+                    
                 </div>
             </form>
         </>
 
     );
 }
+
+export default FormVigenere;
