@@ -2,7 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import FormVigenere from './components/FormVigenere'
+import FormVigenere from './components/FormVigenere';
 
 function App() {
   // const [count, setCount] = useState(0)
