@@ -8,21 +8,32 @@ export default function FormVigenere(): ReactElement {
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
+        const form = e.currentTarget;
+
         const formData = new FormData(e.currentTarget);
         const messages = formData.get('messages') as string; 
         const password = formData.get('password') as string;
-        const action = (form.activeElement as HTMLButtonElement).value;
+        // const action = (form.activeElement as HTMLButtonElement).value;
+
+        // console.log("action", action);
+
+        // e.nativeEvent.submitter.value
+        if (!(e.nativeEvent instanceof SubmitEvent)) return;
+        const submitter = e.nativeEvent.submitter;
+
+        if (!(submitter instanceof HTMLButtonElement)) return;
+        const buttonClicked = submitter.value;
         
-        if (action === 'encrypt') {
-            console.log('Encrypting...');
-        } else {
-            console.log('Original message...');
+        if (buttonClicked === 'encrypt') {
+            console.log('Encrypting...', messages, password);
+        } else if (buttonClicked === 'original') {
+            console.log('Original...', messages, password);
         }
     }
     
     return (
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <textarea 
                         name="messages"
@@ -42,14 +53,14 @@ export default function FormVigenere(): ReactElement {
                     <button type="submit" 
                         value="encrypt" 
                         className="w-1/2 flex items-center justify-center">
-                            <span>Encrypt </span>
-                            <img src={HideEye} alt="hide eye" className="w-4 h-4"></img>
+                            <span>Encrypt</span>
+                            <img src={HideEye} alt="hide eye" className="w-4 ml-4 invert"></img>
                     </button>
                     <button type="submit" 
                         value="original" 
                         className="w-1/2 flex items-center justify-center">
-                            <span>Original </span>
-                            <img src={ShowEye} alt="show eye" className="w-4 h-4"></img>
+                            <span>Original</span>
+                            <img src={ShowEye} alt="show eye" className="w-4 ml-4 invert"></img>
                     </button>                    
                 </div>
             </form>
