@@ -29,6 +29,8 @@ export default function FormVigenere(): ReactElement {
         } else if (buttonClicked === 'original') {
             console.log('Original...', messages, password);
         }
+
+        setIsValid(true);
     }
     
     return (
