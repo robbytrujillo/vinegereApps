@@ -1,9 +1,11 @@
-import { ReactElement, FormEvent } from 'react';
 import ShowEye from '../assets/show-eye.svg';
 import HideEye from '../assets/hide-eye.svg';
+import { ReactElement, FormEvent, useState } from 'react';
 
 
 export default function FormVigenere(): ReactElement {
+
+    const [isValid, setIsValid] = useState<boolean>(true);
 
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -14,6 +16,13 @@ export default function FormVigenere(): ReactElement {
         const messages = formData.get('messages') as string; 
         const password = formData.get('password') as string;
         // const action = (form.activeElement as HTMLButtonElement).value;
+
+        if (messages === '' || password === '') {
+            // alert('Please fill in the form');
+            setIsValid(false);
+            return;
+        }
+
 
         // console.log("action", action);
 
@@ -29,12 +38,13 @@ export default function FormVigenere(): ReactElement {
         } else if (buttonClicked === 'original') {
             console.log('Original...', messages, password);
         }
-
         setIsValid(true);
     }
     
     return (
         <>
+            <h1 className="text-2xl font-bold">Vigenere Cipher</h1>
+            {!isValid && <p className="text-red-500">Please fill in the form</p>}
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <textarea 
