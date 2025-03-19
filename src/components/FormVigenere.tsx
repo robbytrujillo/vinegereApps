@@ -40,11 +40,23 @@ export default function FormVigenere(): ReactElement {
         }
         setIsValid(true);
     }
+
+    function error(): ReactElement {
+        return (
+            <div className="flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
+                <span className="sr-only">Info</span>
+                <div>
+                    <span className="font-medium">Fill messages && password</span>
+                </div>
+            </div>
+        )
+    }
     
     return (
         <>
             <h1 className="text-2xl font-bold">Vigenere Cipher</h1>
-            {!isValid && <p className="text-red-500">Please fill in the form</p>}
+            {/* {!isValid && <p className="text-red-500">Please fill in the form</p>} */}
+            { error() }
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <textarea 
