@@ -54,13 +54,16 @@ export default function FormVigenere(): ReactElement {
                         <span className="font-medium">Fill messages && password</span>
                     </div>
                 </div>
+                <div className="col-span-2">
+                    result
+                </div>
             </>
         )
     }
     
     return (
         <>
-            <h1 className="text-2xl font-bold">Vigenere Cipher</h1>
+            
             <br />
             {/* {!isValid && <p className="text-red-500">Please fill in the form</p>} */}
             { error() }

@@ -9,7 +9,12 @@ function App() {
 
   return (
     <>
-      <FormVigenere />
+      <div className="grid grid-rows-1 grid-cols-1 md:grid-rows-1 md:grid-cols-3 gap-0 md:gap-8">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold">Vigenere Cipher</h1>
+          <FormVigenere /> 
+        </div>
+      </div>
     </>
   )
 }
