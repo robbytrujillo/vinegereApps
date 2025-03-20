@@ -1,7 +1,7 @@
 import ShowEye from '../assets/show-eye.svg';
 import HideEye from '../assets/hide-eye.svg';
 import { ReactElement, FormEvent, useState } from 'react';
-
+import VigenereCipher from '../lib/VinegereCipher';
 
 export default function FormVigenere(): ReactElement {
 
@@ -32,11 +32,13 @@ export default function FormVigenere(): ReactElement {
 
         if (!(submitter instanceof HTMLButtonElement)) return;
         const buttonClicked = submitter.value;
+
+        const cipher = new VigenereCipher(password);
         
         if (buttonClicked === 'encrypt') {
-            console.log('Encrypting...', messages, password);
+            console.log(cipher.encrypt(messages));
         } else if (buttonClicked === 'original') {
-            console.log('Original...', messages, password);
+            console.log(cipher.decrypt(messages));
         }
         setIsValid(true);
     }
