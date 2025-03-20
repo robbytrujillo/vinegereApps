@@ -10,7 +10,7 @@ export default function FormVigenere(): ReactElement {
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        const form = e.currentTarget;
+        // const form = e.currentTarget;
 
         const formData = new FormData(e.currentTarget);
         const messages = formData.get('messages') as string; 
