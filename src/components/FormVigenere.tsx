@@ -54,9 +54,9 @@ export default function FormVigenere(): ReactElement {
                         <span className="font-medium">Fill messages && password</span>
                     </div>
                 </div>
-                <div className="col-span-2">
+                {/* <div className="col-span-2">
                     result
-                </div>
+                </div> */}
             </>
         )
     }

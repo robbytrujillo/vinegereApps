@@ -14,7 +14,7 @@ function App() {
           <h1 className="text-2xl font-bold">Vigenere Cipher</h1>
           <FormVigenere /> 
         </div>
-        <div className="">
+        <div className="col-span-2">
           Result
         </div>
       </div>
