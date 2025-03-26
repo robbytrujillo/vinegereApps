@@ -1,9 +1,13 @@
 import ShowEye from '../assets/show-eye.svg';
 import HideEye from '../assets/hide-eye.svg';
-import { ReactElement, FormEvent, useState } from 'react';
+import { ReactElement, FormEvent, useState, Dispatch, SetStateAction } from 'react';
 import VigenereCipher from '../lib/VinegereCipher';
 
-export default function FormVigenere(): ReactElement {
+interface Props {
+    setResult: Dispatch<SetStateAction<string | undefined >>;
+}
+
+export default function FormVigenere(props: Props): ReactElement {
 
     const [isValid, setIsValid] = useState<boolean>(true);
 
@@ -36,9 +40,9 @@ export default function FormVigenere(): ReactElement {
         const cipher = new VigenereCipher(password);
         
         if (buttonClicked === 'encrypt') {
-            console.log(cipher.encrypt(messages));
+            props.setResult(cipher.encrypt(messages));
         } else if (buttonClicked === 'original') {
-            console.log(cipher.decrypt(messages));
+            props.setResult(cipher.decrypt(messages));
         }
         setIsValid(true);
     }
