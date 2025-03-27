@@ -3,6 +3,7 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 import FormVigenere from './components/FormVigenere';
+import Result from './components/Result';
 
 function App() {
   const [result, setResult] = useState<string>()
@@ -14,8 +15,9 @@ function App() {
           <h1 className="text-xs mb-8"><strong>READ</strong> or <strong>HIDE</strong> your messages</h1>
           <FormVigenere setResult={setResult} /> 
         </div>
+        
         <div className="col-span-2">
-          { result }
+          <Result result={result} />
         </div>
       </div>
     </>
